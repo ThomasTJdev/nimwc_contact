@@ -12,23 +12,28 @@
 
 <link rel="stylesheet" href="/css/contact_private.css" />
 
-<div style="text-align: center;">
-  <h1>Contact settings</h1>
-</div>
-
-<div id="contact" style="width: 300px; margin-left: auto; margin-right: auto;">
-
-  <div>----------------------------------------------------------------</div>
-  <div> Package:      $pluginTitle plugin</div>
-  <div> Author:       $pluginAuthor</div>
-  <div> Version:      $pluginVersion</div>
-  <div> Version date: $pluginVersionDate</div>
-  <div>----------------------------------------------------------------</div>
-
-  <br>
+<div id="contact" class"about">
+  <div style="text-align: center;">
+    <h1>Contact settings</h1>
+  </div>
 
   <div>
-    You can access the plugin at <a href="/contact">/contact</a>
+
+    # let (n, v, d, u) = pluginExtractDetails("contact")
+    <div id="pluginDetails">
+      <hr>
+      <div> <b>Package:</b> ${n}</div>
+      <div> <b>Version:</b> ${v}</div>
+      <div> <b>Description:</b><br>${d}</div>
+      <div> <b>URL:</b> <a href="${u}">${u}</a></div>
+      <hr>
+    </div>
+
+    <br>
+
+    <div>
+      You can access the plugin at <a href="/contact">/contact</a>
+    </div>
   </div>
 </div>
 
@@ -43,11 +48,12 @@
 
 <link rel="stylesheet" href="/css/contact_private.css" />
 
-<div style="text-align: center;">
-  <h1>Contact</h1>
-</div>
 
 <div id="contact">
+
+  <div style="text-align: center;">
+    <h1>Contact</h1>
+  </div>
 
 # if emailSupport.len < 1:
 #
@@ -59,7 +65,7 @@
       <i>This is a test page so email is disabled</i>
     </div>
     # end when
-    
+
   </div>
 #
 # else:
@@ -94,7 +100,7 @@
     #if useCaptcha:
     <div id="recaptcha">
       <div class="g-recaptcha" data-sitekey="${recaptchaSiteKey}" data-theme="light" style="transform:scale(0.93);-webkit-transform:scale(0.93);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
-      <script src="https://www.google.com/recaptcha/api.js" async defer></script>      
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </div>
     #end if
   </form>
@@ -111,11 +117,10 @@
 
 <link rel="stylesheet" href="/css/contact_private.css" />
 
-<div style="text-align: center;">
-  <h1>Contact</h1>
-</div>
-
 <div id="contact">
+  <div style="text-align: center;">
+    <h1>Contact</h1>
+  </div>
 
   <div style="text-align: center">
     <h4>${decodeUrl(data)}</h4>

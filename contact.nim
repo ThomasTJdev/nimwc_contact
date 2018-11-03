@@ -7,7 +7,16 @@
 #
 #
 
-import strutils, os, db_sqlite, json, asyncdispatch, asyncnet, parsecfg, uri
+import
+  asyncdispatch,
+  asyncnet,
+  db_sqlite,
+  json,
+  logging
+  os,
+  parsecfg,
+  strutils,
+  uri,
 
 
 from times import epochTime
@@ -15,22 +24,18 @@ import jester
 import ../../nimwcpkg/resources/email/email_connection
 import ../../nimwcpkg/resources/session/user_data
 import ../../nimwcpkg/resources/utils/dates
+import ../../nimwcpkg/resources/utils/logging_nimwc
+import ../../nimwcpkg/resources/utils/plugins
 import ../../nimwcpkg/resources/web/google_recaptcha
 
-
-const pluginTitle       = "Contact"
-const pluginAuthor      = "Thomas T. Jarløv"
-const pluginVersion     = "0.1"
-const pluginVersionDate = "2018-05-12"
-
-
 proc pluginInfo() =
+  let (n, v, d, u) = pluginExtractDetails("contact")
   echo " "
   echo "--------------------------------------------"
-  echo "  Package:      " & pluginTitle & " plugin"
-  echo "  Author:       " & pluginAuthor
-  echo "  Version:      " & pluginVersion
-  echo "  Version date: " & pluginVersionDate
+  echo "  Package:      " & n
+  echo "  Version:      " & v
+  echo "  Description:  " & d
+  echo "  URL:          " & u
   echo "--------------------------------------------"
   echo " "
 pluginInfo()
@@ -56,11 +61,13 @@ Email content:
 $4
 """ % [title, senderName, senderEmail, content]
 
+  debug("Plugin Mailer: Sending contact mail")
+
   when not defined(demo):
     asyncCheck sendMailNow("Contact email from: " & senderName, emailContent, emailSupport)
 
   return "Thank you. The email was sent."
-    
+
 
 
 proc contactStart*(db: DbConn) =
