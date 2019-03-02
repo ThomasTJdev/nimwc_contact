@@ -1,8 +1,10 @@
   get "/contact/settings":
     createTFD()
-    if c.loggedIn and c.rank in [Admin, Moderator]:
-      resp genMain(c, genContactSettings(c))
-  
+    if not c.loggedIn and c.rank notin [Admin, Moderator]:
+      redirect("/")
+
+    resp genMain(c, genContactSettings(c))
+
   get "/contact":
     createTFD()
     resp genMain(c, genContactMain(c, db))

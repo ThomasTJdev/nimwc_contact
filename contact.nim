@@ -10,7 +10,7 @@
 import
   asyncdispatch,
   asyncnet,
-  db_sqlite,
+  datetime2human,
   json,
   logging,
   os,
@@ -18,12 +18,13 @@ import
   strutils,
   uri
 
+when defined(postgres): import db_postgres
+else:                   import db_sqlite
 
 from times import epochTime
 import jester
 import ../../nimwcpkg/resources/email/email_connection
 import ../../nimwcpkg/resources/session/user_data
-import ../../nimwcpkg/resources/utils/dates
 import ../../nimwcpkg/resources/utils/logging_nimwc
 import ../../nimwcpkg/resources/utils/plugins
 import ../../nimwcpkg/resources/web/google_recaptcha

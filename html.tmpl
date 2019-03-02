@@ -80,21 +80,28 @@
     # end when
 
     <div class="form-group">
-      <label for="contactName">Your name</label>
-      <input type="text" name="name" class="form-control" id="contactName" required>
+      <label>Your name</label>
+      <input type="text" name="name" class="input is-small" id="contactName" required>
     </div>
+
+    <br>
 
     <div class="form-group">
-      <label for="contactEmail">Your email address</label>
-      <input type="email" name="email" class="form-control" id="contactEmail" placeholder="name@example.com" required>
+      <label>Your email address</label>
+      <input type="email" name="email" class="input is-small" id="contactEmail" placeholder="name@example.com" required>
     </div>
 
-    <div>
-      <textarea class="form-control" id="contactContent" name="content" rows="3" required></textarea>
-    </div>
+    <br>
 
     <div>
-      <button type="submit" class="btn btn-primary">Send email</button>
+      <label>Message</label>
+      <textarea class="textarea" id="contactContent" name="content" required></textarea>
+    </div>
+
+    <br>
+
+    <div>
+      <button type="submit" class="button is-success is-small">Send email</button>
     </div>
 
     #if useCaptcha:
