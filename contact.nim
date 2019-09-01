@@ -27,7 +27,7 @@ import ../../nimwcpkg/resources/email/email_connection
 import ../../nimwcpkg/resources/session/user_data
 import ../../nimwcpkg/resources/utils/logging_nimwc
 import ../../nimwcpkg/resources/utils/plugins
-import ../../nimwcpkg/resources/web/google_recaptcha
+import ../../nimwcpkg/resources/web/html_utils
 
 proc pluginInfo() =
   let (n, v, d, u) = pluginExtractDetails("contact")
