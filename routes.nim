@@ -16,12 +16,12 @@
   post "/contact/send":
     createTFD()
 
-    when not defined(dev):
+    when not defined(dev) and defined(recaptcha):
       if useCaptcha:
         if not await checkReCaptcha(@"g-recaptcha-response", c.req.ip):
           resp genMain(c, genFormLogin(c, "Error: You need to verify, that you are not a robot!"))
 
-    let content = @"content"
+    let content = @"content".replace(re"\n", "<br")
     let senderName = @"name"
     let senderEmail = @"email"
 
