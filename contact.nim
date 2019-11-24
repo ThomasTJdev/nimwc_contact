@@ -23,14 +23,14 @@ else:                   import db_sqlite
 
 from times import epochTime
 import jester
-import ../../nimwcpkg/resources/email/email_connection
-import ../../nimwcpkg/resources/session/user_data
-import ../../nimwcpkg/resources/utils/logging_nimwc
-import ../../nimwcpkg/resources/utils/plugins
-import ../../nimwcpkg/resources/web/html_utils
+import ../../nimwcpkg/emails/emails
+import ../../nimwcpkg/sessions/sessions
+import ../../nimwcpkg/utils/logger
+import ../../nimwcpkg/plugins/plugins
+import ../../nimwcpkg/webs/html_utils
 
 proc pluginInfo() =
-  let (n, v, d, u) = pluginExtractDetails("contact")
+  let (n, v, d, u) = pluginGetDetails("contact")
   echo " "
   echo "--------------------------------------------"
   echo "  Package:      " & n

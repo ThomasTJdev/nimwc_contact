@@ -2,8 +2,8 @@
   {
     "name": "Contact",
     "foldername": "contact",
-    "version": "0.4",
-    "requires": "5.5.0",
+    "version": "0.5",
+    "requires": "6.0",
     "url": "https://github.com/ThomasTJdev/nimwc_contact.git",
     "method": "git",
     "tags": [
@@ -12,6 +12,8 @@
     ],
     "description": "Contactform to send mails to the webpage support mail address",
     "license": "MIT",
-    "web": "https://github.com/ThomasTJdev/nimwc_contact"
+    "web": "https://github.com/ThomasTJdev/nimwc_contact",
+    "sustainability": "",
+    "email": "codefactory@ttj.dk"
   }
 ]
