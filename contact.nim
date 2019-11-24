@@ -24,9 +24,9 @@ else:                   import db_sqlite
 from times import epochTime
 import jester
 import ../../nimwcpkg/emails/emails
-import ../../nimwcpkg/sessions/sessions
-import ../../nimwcpkg/utils/logger
 import ../../nimwcpkg/plugins/plugins
+import ../../nimwcpkg/sessions/sessions
+import ../../nimwcpkg/utils/loggers
 import ../../nimwcpkg/webs/html_utils
 
 proc pluginInfo() =
